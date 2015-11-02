@@ -15,6 +15,7 @@ import retrofit.http.GET;
 import retrofit.http.Multipart;
 import retrofit.http.POST;
 import retrofit.http.Part;
+import retrofit.http.Path;
 import retrofit.mime.TypedFile;
 
 /**
@@ -64,7 +65,9 @@ public class WebServiceHelper {
                            @Part("pendapatan") double pendapatan, @Part("pendidikan") int pendidikan, @Part("tabungan") double tabungan,
                            @Part("foto_keluarga") TypedFile foto_keluarga, @Part("foto_kk") TypedFile foto_kk, @Part("no_rt") int no_rt, Callback<Post> callback);
 
-        
+        @Multipart
+        @POST("/getLogin/{username}/{password}")
+        void login(@Path("username") String email, @Path("password") String password, Callback callback);
     }
 
 }
